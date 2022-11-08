@@ -10,7 +10,7 @@ const AllServices = () => {
     return (
         <>
             <AllServicesHeader></AllServicesHeader>
-            <div className="w-9/12 mx-auto my-12">
+            <div className="w-full  md:w-9/12 mx-auto my-12">
                 <Card>
                     <div className="my-4 flex items-center justify-between">
                         <h5 className="text-3xl font-bold leading-none text-gray-900 dark:text-white">

@@ -19,6 +19,9 @@ const Service = ({ service }) => {
                 <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                     <span className='text-base font-semibold'>TK.</span><span>{price}</span>
                 </div>
+                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                    <button className='bg-green-500 text-white py-2 px-3 rounded'>Add to Cart</button>
+                </div>
             </div>
         </li>
     );
