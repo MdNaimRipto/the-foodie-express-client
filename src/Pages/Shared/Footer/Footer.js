@@ -23,8 +23,8 @@ const Footer = () => {
                         </span>
                     </Link>
                 </div>
-                <div className='flex mt-8'>
-                    <div className="space-y-2 text-sm mr-12">
+                <div className='flex mt-8 flex-col md:flex-row '>
+                    <div className="space-y-2 text-sm mr-12 mb-12 md:mb-0">
                         <p className="text-base font-bold tracking-wide text-gray-900">
                             Contacts
                         </p>

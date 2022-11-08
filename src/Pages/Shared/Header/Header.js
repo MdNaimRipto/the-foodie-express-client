@@ -6,12 +6,12 @@ import navIcon from "../../../Assets/Icons/icon.png"
 const Header = () => {
     return (
         <Navbar
-            className='py-6 border-b border-gray-300 container mx-auto'
+            className='py-7 border-b border-gray-300 container mx-auto'
             fluid={true}
             rounded={true}
         >
             <Navbar.Brand className='h-6'>
-                <div className="w-32">
+                <div className=" w-20 md:w-32">
                     <img
                         src={navIcon}
                         alt="Navbar logo"
@@ -26,14 +26,14 @@ const Header = () => {
                     <Link to="/home">
                         Home
                     </Link>
-                    <Link to="/services">
-                        Services
+                    <Link to="/add">
+                        Add Services
+                    </Link>
+                    <Link to="/cart">
+                        Cart
                     </Link>
                     <Link to="/reviews">
                         My Reviews
-                    </Link>
-                    <Link to="/add">
-                        Add Services
                     </Link>
                     <Link to="/blog">
                         Blog
@@ -72,14 +72,14 @@ const Header = () => {
                 <Link to="/home">
                     Home
                 </Link>
-                <Link to="/services">
-                    Services
-                </Link>
-                <Link to="/reviews">
-                    All Reviews
-                </Link>
                 <Link to="/add">
                     Add Services
+                </Link>
+                <Link to="/reviews">
+                    My Reviews
+                </Link>
+                <Link to="/cart">
+                    Cart
                 </Link>
                 <Link to="/blog">
                     Blog

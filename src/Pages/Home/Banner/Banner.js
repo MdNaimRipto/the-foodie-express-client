@@ -4,7 +4,7 @@ import "./Banner.css"
 
 const Banner = () => {
     return (
-        <div className="h-56 sm:h-64 xl:h-[32rem] 2xl:h-96 my-8">
+        <div className=" h-80 sm:h-64 xl:h-[600px] 2xl:h-96 my-8">
             <Carousel className='text-center container mx-auto'>
                 <div className='banner-1 pb-60 md:pb-28'>
                     <h2 className=" text-xl md:text-5xl mt-6 mb-4">Welcome to The Foodie Express.</h2>
