@@ -1,5 +1,7 @@
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
 import React from 'react';
+import { Link } from "react-router-dom"
+import navIcon from "../../../Assets/Icons/icon.png"
 
 const Header = () => {
     return (
@@ -8,35 +10,34 @@ const Header = () => {
             fluid={true}
             rounded={true}
         >
-            <Navbar.Brand>
-                <img
-                    src="https://flowbite.com/docs/images/logo.svg"
-                    className="mr-3 h-6 sm:h-9"
-                    alt="Flowbite Logo"
-                />
+            <Navbar.Brand className='h-6'>
+                <div className="w-32">
+                    <img
+                        src={navIcon}
+                        alt="Navbar logo"
+                    />
+                </div>
                 <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-                    Flowbite
+                    The Foodie Express
                 </span>
             </Navbar.Brand>
-            <div className="flex flex-row-reverse md:flex-row justify-between md:order-2 w-1/4 md:w-[35%]">
+            <div className="flex flex-row-reverse md:flex-row justify-between md:order-2 w-1/4 md:w-[40%]">
                 <Navbar.Collapse className='hidden md:flex items-center mr-8'>
-                    <Navbar.Link
-                        href="/navbars"
-                    >
+                    <Link to="/home">
                         Home
-                    </Navbar.Link>
-                    <Navbar.Link href="/navbars">
-                        About
-                    </Navbar.Link>
-                    <Navbar.Link href="/navbars">
+                    </Link>
+                    <Link to="/services">
                         Services
-                    </Navbar.Link>
-                    <Navbar.Link href="/navbars">
-                        Pricing
-                    </Navbar.Link>
-                    <Navbar.Link href="/navbars">
-                        Contact
-                    </Navbar.Link>
+                    </Link>
+                    <Link to="/reviews">
+                        My Reviews
+                    </Link>
+                    <Link to="/add">
+                        Add Services
+                    </Link>
+                    <Link to="/blog">
+                        Blog
+                    </Link>
                 </Navbar.Collapse>
                 <Dropdown
                     arrowIcon={false}
@@ -68,23 +69,21 @@ const Header = () => {
                 <Navbar.Toggle />
             </div>
             <Navbar.Collapse className='block md:hidden'>
-                <Navbar.Link
-                    href="/navbars"
-                >
+                <Link to="/home">
                     Home
-                </Navbar.Link>
-                <Navbar.Link href="/navbars">
-                    About
-                </Navbar.Link>
-                <Navbar.Link href="/navbars">
+                </Link>
+                <Link to="/services">
                     Services
-                </Navbar.Link>
-                <Navbar.Link href="/navbars">
-                    Pricing
-                </Navbar.Link>
-                <Navbar.Link href="/navbars">
-                    Contact
-                </Navbar.Link>
+                </Link>
+                <Link to="/reviews">
+                    All Reviews
+                </Link>
+                <Link to="/add">
+                    Add Services
+                </Link>
+                <Link to="/blog">
+                    Blog
+                </Link>
             </Navbar.Collapse>
         </Navbar>
     );
