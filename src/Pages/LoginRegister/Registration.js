@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc"
+import { AuthContext } from '../../ContextProvider/AuthProvider';
 
 const Registration = () => {
+    const { createAccountWithEmailAndPassword, setUser } = useContext(AuthContext)
+    const handleUserRegistration = (e) => {
+        e.preventDefault()
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        createAccountWithEmailAndPassword(email, password)
+            .then(result => {
+                setUser(result.user)
+                const user = result.user;
+                console.log(user)
+                form.reset()
+            })
+            .catch(err => console.error(err))
+    }
     return (
-        <form>
+        <form onSubmit={handleUserRegistration}>
             <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
                 <div className="relative py-3 sm:max-w-xl sm:mx-auto w-[96%] md:w-1/3 mx-auto">
                     <div
