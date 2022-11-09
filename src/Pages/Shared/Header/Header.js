@@ -67,9 +67,16 @@ const Header = () => {
                     user?.uid &&
                     <Dropdown
                         className='ml-2 md:ml-0'
+
                         arrowIcon={false}
                         inline={true}
-                        label={<Avatar alt="User settings" img={user?.uid ? user?.photoURL : <BiUser />} rounded={true} />}
+                        label={<Avatar alt="" img={user?.photoURL ? user?.photoURL : <BiUser />} rounded={true} />}
+                        // label={<img
+                        //     alt=""
+                        //     src={user?.photoURL ? user?.photoURL : <BiUser />}
+                        //     referrerPolicy="no-referrer"
+                        // />}
+                        status="online"
                     >
                         <Dropdown.Header>
                             <span className="block text-sm">

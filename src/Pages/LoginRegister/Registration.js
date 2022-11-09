@@ -4,18 +4,39 @@ import { FcGoogle } from "react-icons/fc"
 import { AuthContext } from '../../ContextProvider/AuthProvider';
 
 const Registration = () => {
-    const { createAccountWithEmailAndPassword, setUser } = useContext(AuthContext)
+    const { createAccountWithEmailAndPassword, setUser, updateUserProfile, loginWithGoogle } = useContext(AuthContext)
     const handleUserRegistration = (e) => {
         e.preventDefault()
         const form = e.target;
+        const firstName = form.first.value;
+        const lastName = form.last.value;
+        const name = `${firstName} ${lastName}`
+        const photoURL = form.photoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
+        console.log(name, photoURL)
         createAccountWithEmailAndPassword(email, password)
             .then(result => {
                 setUser(result.user)
                 const user = result.user;
                 console.log(user)
                 form.reset()
+                handleUpdateProfile(name, photoURL)
+            })
+            .catch(err => console.error(err))
+    }
+    const handleUpdateProfile = (name, photoUrl) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoUrl
+        }
+        updateUserProfile(profile)
+    }
+    const handleGoogleSignup = () => {
+        loginWithGoogle()
+            .then(result => {
+                const user = result.user
+                console.log(user)
             })
             .catch(err => console.error(err))
     }
@@ -34,21 +55,23 @@ const Registration = () => {
                             <div className="divide-y divide-gray-200">
                                 <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                                     <div className="relative mb-6">
-                                        <input id="first" name="first" type="text" className="peer py-2 w-full border border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600 rounded" placeholder="First Name" />
-
+                                        <input id="first" name="first" type="text" className="peer py-2 w-full border border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600 rounded" placeholder="First Name" required />
                                     </div>
                                     <div className="relative mb-6">
-                                        <input id="last" name="last" type="text" className="peer py-2 w-full border border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600 rounded" placeholder="Last Name" />
+                                        <input id="last" name="last" type="text" className="peer py-2 w-full border border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600 rounded" placeholder="Last Name" required />
+                                    </div>
+                                    <div className="relative mb-6">
+                                        <input id="photoURL" name="photoUrl" type="text" className="peer py-2 w-full border border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600 rounded" placeholder="photoURL" />
                                     </div>
 
                                     <div className="relative mb-6">
-                                        <input id="email" name="email" type="email" className="peer py-2 w-full border border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600 rounded" placeholder="Email address" />
+                                        <input id="email" name="email" type="email" className="peer py-2 w-full border border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600 rounded" placeholder="Email address" required />
                                     </div>
                                     <div className="relative">
-                                        <input id="password" name="password" type="password" className="peer py-2 w-full border border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600 rounded" placeholder="Password" />
+                                        <input id="password" name="password" type="password" className="peer py-2 w-full border border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600 rounded" placeholder="Password" required />
                                     </div>
                                     <div className="relative">
-                                        <button className="bg-green-400 text-white rounded-md py-2 w-full my-4">Login</button>
+                                        <button className="bg-green-400 text-white rounded-md py-2 w-full my-4">Register</button>
                                     </div>
                                     <p className='text-center text-base font-semibold'>
                                         <small>
@@ -58,7 +81,9 @@ const Registration = () => {
                                     </p>
                                     <p className='horizontal-line mt-2 text-base font-semibold'>Or</p>
                                     <div className="relative">
-                                        <button className="font-semibold text-base rounded-md py-2 w-full border border-gray-300 flex justify-center items-center">
+                                        <button
+                                            onClick={handleGoogleSignup}
+                                            className="font-semibold text-base rounded-md py-2 w-full border border-gray-300 flex justify-center items-center">
                                             <FcGoogle className='mr-2 text-2xl' />
                                             Continue With Google
                                         </button>

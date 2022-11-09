@@ -6,7 +6,8 @@ import {
     onAuthStateChanged,
     signInWithEmailAndPassword,
     signInWithPopup,
-    signOut
+    signOut,
+    updateProfile
 } from "firebase/auth"
 import app from '../Firebase/Firebase.init';
 
@@ -35,6 +36,9 @@ const AuthProvider = ({ children }) => {
         // setLoader(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
+    const updateUserProfile = (profile) => {
+        return updateProfile(auth.currentUser, profile)
+    }
     const logout = () => {
         // setLoader(true)
         return signOut(auth)
@@ -56,6 +60,7 @@ const AuthProvider = ({ children }) => {
         loginWithGoogle,
         createAccountWithEmailAndPassword,
         loginWithEmailAndPassword,
+        updateUserProfile,
         logout
 
     };

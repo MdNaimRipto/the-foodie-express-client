@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc"
 import { AuthContext } from '../../ContextProvider/AuthProvider';
 
 const Login = () => {
-    const { loginWithEmailAndPassword, setUser } = useContext(AuthContext)
+    const { loginWithEmailAndPassword, setUser, loginWithGoogle } = useContext(AuthContext)
     const handleUserLogin = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -17,6 +17,14 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 form.reset()
+            })
+            .catch(err => console.error(err))
+    }
+    const handleGoogleLogin = () => {
+        loginWithGoogle()
+            .then(result => {
+                const user = result.user
+                console.log(user)
             })
             .catch(err => console.error(err))
     }
@@ -51,7 +59,9 @@ const Login = () => {
                                     </p>
                                     <p className='horizontal-line mt-2 text-base font-semibold'>Or</p>
                                     <div className="relative">
-                                        <button className="font-semibold text-base rounded-md py-2 w-full border border-gray-300 flex justify-center items-center">
+                                        <button
+                                            onClick={handleGoogleLogin}
+                                            className="font-semibold text-base rounded-md py-2 w-full border border-gray-300 flex justify-center items-center">
                                             <FcGoogle className='mr-2 text-2xl' />
                                             Continue With Google
                                         </button>
