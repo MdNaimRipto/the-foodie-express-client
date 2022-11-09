@@ -1,8 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { useTitle } from '../../hooks/useTitle';
 
 const ServiceDetails = () => {
+    useTitle("Food Detail's")
     const details = useLoaderData()
     const { title, img, price, description } = details
     return (

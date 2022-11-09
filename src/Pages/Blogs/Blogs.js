@@ -1,7 +1,9 @@
 import React from 'react';
 import { Card } from 'flowbite-react';
+import { useTitle } from '../../hooks/useTitle';
 
 const Blogs = () => {
+    useTitle("Blog's")
     return (
         <div className='container mx-auto my-12'>
             <Card className='mb-8 bg-gray-200'>

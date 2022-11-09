@@ -1,10 +1,12 @@
 import { Card } from 'flowbite-react';
 import React from 'react';
 import { useLoaderData } from "react-router-dom"
+import { useTitle } from '../../hooks/useTitle';
 import AllService from '../AllService/AllService';
 import AllServicesHeader from '../AllServicesHeader/AllServicesHeader';
 
 const AllServices = () => {
+    useTitle("All Services")
     const allServices = useLoaderData()
     return (
         <>

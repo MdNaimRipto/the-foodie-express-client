@@ -4,8 +4,10 @@ import "./LoginRegister.css"
 import { FcGoogle } from "react-icons/fc"
 import { AuthContext } from '../../ContextProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import { useTitle } from '../../hooks/useTitle';
 
 const Login = () => {
+    useTitle("Login")
     const { loginWithEmailAndPassword, loginWithGoogle } = useContext(AuthContext)
     const handleUserLogin = (e) => {
         e.preventDefault()

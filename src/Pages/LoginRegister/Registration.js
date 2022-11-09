@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc"
 import { AuthContext } from '../../ContextProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import { useTitle } from '../../hooks/useTitle';
 
 const Registration = () => {
+    useTitle("Registration")
     const { createAccountWithEmailAndPassword, setUser, updateUserProfile, loginWithGoogle } = useContext(AuthContext)
     const handleUserRegistration = (e) => {
         e.preventDefault()
