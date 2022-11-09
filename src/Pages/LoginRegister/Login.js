@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import "./LoginRegister.css"
 import { FcGoogle } from "react-icons/fc"
 import { AuthContext } from '../../ContextProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Login = () => {
-    const { loginWithEmailAndPassword, setUser, loginWithGoogle } = useContext(AuthContext)
+    const { loginWithEmailAndPassword, loginWithGoogle } = useContext(AuthContext)
     const handleUserLogin = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -13,20 +14,59 @@ const Login = () => {
         const password = form.password.value;
         loginWithEmailAndPassword(email, password)
             .then(result => {
-                setUser(result.user)
                 const user = result.user;
                 console.log(user)
                 form.reset()
+                toast.success("Login Successful", {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
             })
-            .catch(err => console.error(err))
+            .catch(err => {
+                console.error(err)
+                toast.error(`${err.message}. Please Try Again`, {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
+            })
     }
     const handleGoogleLogin = () => {
         loginWithGoogle()
             .then(result => {
                 const user = result.user
                 console.log(user)
+                toast.success("Login Successful", {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
             })
-            .catch(err => console.error(err))
+            .catch(err => {
+                console.error(err)
+                toast.error(`${err.message}. Please Try Again`, {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
+            })
     }
     return (
         <form onSubmit={handleUserLogin}>
@@ -43,10 +83,10 @@ const Login = () => {
                             <div className="divide-y divide-gray-200">
                                 <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                                     <div className="relative mb-6">
-                                        <input id="email" name="email" type="email" className="peer py-2 w-full border border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600 rounded" placeholder="Email address" />
+                                        <input id="email" name="email" type="email" className="peer py-2 w-full border border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600 rounded" placeholder="Email address" required />
                                     </div>
                                     <div className="relative">
-                                        <input id="password" name="password" type="password" className="peer py-2 w-full border border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600 rounded" placeholder="Password" />
+                                        <input id="password" name="password" type="password" className="peer py-2 w-full border border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600 rounded" placeholder="Password" required />
                                     </div>
                                     <div className="relative">
                                         <button className="bg-green-400 text-white rounded-md py-2 w-full my-4">Login</button>

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc"
 import { AuthContext } from '../../ContextProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Registration = () => {
     const { createAccountWithEmailAndPassword, setUser, updateUserProfile, loginWithGoogle } = useContext(AuthContext)
@@ -14,7 +15,6 @@ const Registration = () => {
         const photoURL = form.photoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photoURL)
         createAccountWithEmailAndPassword(email, password)
             .then(result => {
                 setUser(result.user)
@@ -22,8 +22,28 @@ const Registration = () => {
                 console.log(user)
                 form.reset()
                 handleUpdateProfile(name, photoURL)
+                toast.success("Registration Successful", {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
             })
-            .catch(err => console.error(err))
+            .catch(err => {
+                console.error(err)
+                toast.error(`${err.message}. Please Try Again`, {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
+            })
     }
     const handleUpdateProfile = (name, photoUrl) => {
         const profile = {
@@ -37,8 +57,28 @@ const Registration = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                toast.success("Registration Successful", {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
             })
-            .catch(err => console.error(err))
+            .catch(err => {
+                console.error(err)
+                toast.error(`${err.message}. Please Try Again`, {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
+            })
     }
     return (
         <form onSubmit={handleUserRegistration}>

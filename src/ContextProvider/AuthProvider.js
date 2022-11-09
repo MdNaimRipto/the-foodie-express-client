@@ -21,7 +21,7 @@ const googleProvider = new GoogleAuthProvider(auth)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     // const user = { name: "Naimur Rahman" }
-    const [loader, setLoader] = useState(true)
+    // const [loader, setLoader] = useState(true)
 
     const loginWithGoogle = () => {
         // setLoader(true)
@@ -56,7 +56,7 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         setUser,
-        loader,
+        // loader,
         loginWithGoogle,
         createAccountWithEmailAndPassword,
         loginWithEmailAndPassword,

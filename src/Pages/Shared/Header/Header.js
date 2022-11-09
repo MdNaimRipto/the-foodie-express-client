@@ -38,7 +38,7 @@ const Header = () => {
                     <Link to="/allServices">
                         All Foods
                     </Link>
-                    <Link to="/blog">
+                    <Link to="/blogs">
                         Blog's
                     </Link>
 
@@ -112,19 +112,19 @@ const Header = () => {
                 <Navbar.Toggle />
             </div>
             <Navbar.Collapse className='block md:hidden'>
-                <Link to="/home">
+                <Link className='font-semibold mb-3 ml-2' to="/home">
                     Home
                 </Link>
-                <Link to="/allServices">
+                <Link className='font-semibold mb-3 ml-2' to="/allServices">
                     Add Food
                 </Link>
-                <Link to="/blog">
+                <Link className='font-semibold mb-3 ml-2' to="/blogs">
                     Blog's
                 </Link>
-                <Link to="/addService">
+                <Link className='font-semibold mb-3 ml-2' to="/addService">
                     Add Food
                 </Link>
-                <Link to="/reviews">
+                <Link className='font-semibold mb-3 ml-2' to="/reviews">
                     My Reviews
                 </Link>
             </Navbar.Collapse>
