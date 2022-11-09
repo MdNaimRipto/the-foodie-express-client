@@ -6,7 +6,6 @@ import AllServicesHeader from '../AllServicesHeader/AllServicesHeader';
 
 const AllServices = () => {
     const allServices = useLoaderData()
-    console.log(allServices);
     return (
         <>
             <AllServicesHeader></AllServicesHeader>

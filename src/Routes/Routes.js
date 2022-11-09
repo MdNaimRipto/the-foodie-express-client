@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
                 path: "/allServices",
                 element: <AllServices></AllServices>,
                 loader: () => {
-                    return fetch("https://the-foodie-express-server.vercel.app/allServices")
+                    return fetch("http://localhost:5000/allServices")
                 }
             }
         ]

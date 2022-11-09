@@ -1,13 +1,20 @@
 import React from 'react';
+import { Link } from "react-router-dom"
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const AllService = ({ service }) => {
     const { title, img, price, description } = service
     return (
         <li className="pt-3 pb-0 sm:pt-4">
             <div className="flex items-center space-x-4">
-                <div className="shrink-0">
-                    <img className="h-16 md:h-32 w-16 md:w-32" src={img} alt="" />
-                </div>
+                <PhotoProvider>
+                    <PhotoView src={img}>
+                        <div className="shrink-0">
+                            <img className="h-16 md:h-32 w-16 md:w-32" src={img} alt="" />
+                        </div>
+                    </PhotoView>
+                </PhotoProvider>
+
                 <div className="min-w-0 flex-1">
                     <p className="truncate text-sm md:text-2xl mb-1 md:mb-3 font-medium text-gray-900 dark:text-white">
                         {title}
@@ -21,7 +28,9 @@ const AllService = ({ service }) => {
                         <span className='font-semibold'>TK.</span><span>{price}</span>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                        <button className='bg-green-500 text-white text-xs md:text-base py-1 md:py-2 px-2 md:px-3 rounded'>Add to Cart</button>
+                        <Link>
+                            <button className='bg-green-500 text-white text-xs md:text-base py-1 md:py-2 px-2 md:px-3 rounded'>View Details</button>
+                        </Link>
                     </div>
                 </div>
             </div>
