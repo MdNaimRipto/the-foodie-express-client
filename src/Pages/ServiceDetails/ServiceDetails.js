@@ -26,7 +26,7 @@ const ServiceDetails = () => {
                         </h2>
                         <p className="text-base text-gray-700 md:text-lg">
                             <span className='font-semibold mr-2'>price:</span>
-                            <span className='font-bold'>TK.{price}/Per Plate</span>
+                            <span className='font-bold'>TK.{price}</span>
                         </p>
                         <p className="text-base text-gray-700 md:text-lg my-2">
                             <span className='font-semibold'>Stock:</span>

@@ -15,7 +15,7 @@ const Services = () => {
             <Card>
                 <div className="my-4 flex items-center justify-center md:justify-between">
                     <h5 className="text-xl md:text-3xl font-bold leading-none text-gray-900 dark:text-white">
-                        Check the Latest Delicious Food
+                        Check the Latest Added Food
                     </h5>
                 </div>
                 <div className="flow-root">

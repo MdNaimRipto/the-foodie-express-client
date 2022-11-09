@@ -32,7 +32,7 @@ const Header = () => {
                     <Link to="/blog">
                         Blog's
                     </Link>
-                    <Link to="/add">
+                    <Link to="/addService">
                         Add Food
                     </Link>
                     <Link to="/reviews">
@@ -80,7 +80,7 @@ const Header = () => {
                 <Link to="/blog">
                     Blog's
                 </Link>
-                <Link to="/add">
+                <Link to="/addService">
                     Add Food
                 </Link>
                 <Link to="/reviews">

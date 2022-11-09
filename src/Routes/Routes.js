@@ -3,6 +3,7 @@ import Main from "../Layout/Main";
 import AllServices from "../Pages/AllServices/AllServices";
 import Home from "../Pages/Home/Home/Home";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
+import AddService from "../Pages/AddService/AddService"
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
                 loader: ({ params }) => {
                     return fetch(`http://localhost:5000/serviceDetails/${params.id}`)
                 }
+            },
+            {
+                path: "/addService",
+                element: <AddService></AddService>
             }
         ]
     }
