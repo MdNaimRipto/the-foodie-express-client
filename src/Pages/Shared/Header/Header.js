@@ -6,7 +6,7 @@ import navIcon from "../../../Assets/Icons/icon.png"
 const Header = () => {
     return (
         <Navbar
-            className='py-7 border-b border-gray-300 container mx-auto'
+            className='pt-7 pb-7 border-b border-gray-300 container mx-auto'
             fluid={true}
             rounded={true}
         >
