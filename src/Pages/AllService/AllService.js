@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const AllService = ({ service }) => {
-    const { title, img, price, description } = service
+    const { _id, title, img, price, description } = service
     return (
         <li className="pt-3 pb-0 sm:pt-4">
             <div className="flex items-center space-x-4">
@@ -28,7 +28,7 @@ const AllService = ({ service }) => {
                         <span className='font-semibold'>TK.</span><span>{price}</span>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                        <Link>
+                        <Link to={`/serviceDetails/${_id}`}>
                             <button className='bg-green-500 text-white text-xs md:text-base py-1 md:py-2 px-2 md:px-3 rounded'>View Details</button>
                         </Link>
                     </div>

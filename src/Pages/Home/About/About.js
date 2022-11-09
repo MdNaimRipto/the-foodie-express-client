@@ -12,13 +12,13 @@ const About = () => {
                         alt=""
                     />
                 </div>
-                <div className="flex flex-col justify-center">
+                <div className="flex flex-col justify-center ml-6">
                     <div className="max-w-xl mb-6">
-                        <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+                        <h2 className="max-w-lg mb-6 font-sans text-2xl md:text-4xl font-bold tracking-tight text-gray-900  sm:leading-none ">
                             About The Foodie Express
                         </h2>
-                        <p className="text-base text-gray-700 md:text-lg">
-                            The foodie express is a website where you can order different type of food's and get delivered within an estimated time all over the city. I run this busniess from home and it is not a company. That's why I have some limitation's like cannot provide food outside the city. Check the order page to order your favorite food.
+                        <p className="text-base text-gray-400 md:text-lg">
+                            The foodie express is a website where you can order different type of food's and get delivered within an estimated time all over the city. I run this busniess from home and it is not a company. That's why I have some limitation's like cannot provide food outside the city.I take only special order's from outside the city.  Check the order page to order your favorite food.
                         </p>
                     </div>
                 </div>

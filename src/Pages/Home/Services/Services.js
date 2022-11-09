@@ -11,10 +11,10 @@ const Services = () => {
             .then(data => setServices(data))
     }, [])
     return (
-        <div className="w-9/12 mx-auto my-12">
+        <div className="w-full md:w-9/12 mx-auto my-12">
             <Card>
-                <div className="my-4 flex items-center justify-between">
-                    <h5 className="text-3xl font-bold leading-none text-gray-900 dark:text-white">
+                <div className="my-4 flex items-center justify-center md:justify-between">
+                    <h5 className="text-xl md:text-3xl font-bold leading-none text-gray-900 dark:text-white">
                         Check the Latest Delicious Food
                     </h5>
                 </div>
