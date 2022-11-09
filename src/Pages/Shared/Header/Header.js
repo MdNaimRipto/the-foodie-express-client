@@ -6,7 +6,7 @@ import navIcon from "../../../Assets/Icons/icon.png"
 const Header = () => {
     return (
         <Navbar
-            className='py-8 border-b border-gray-300 container mx-auto'
+            className='py-7 border-b border-gray-300 container mx-auto'
             fluid={true}
             rounded={true}
         >
@@ -29,14 +29,14 @@ const Header = () => {
                     <Link to="/allServices">
                         All Foods
                     </Link>
+                    <Link to="/blog">
+                        Blog's
+                    </Link>
                     <Link to="/add">
                         Add Food
                     </Link>
                     <Link to="/reviews">
                         My Reviews
-                    </Link>
-                    <Link to="/blog">
-                        Blog
                     </Link>
                 </Navbar.Collapse>
                 <Dropdown
@@ -77,14 +77,14 @@ const Header = () => {
                 <Link to="/allServices">
                     Add Food
                 </Link>
+                <Link to="/blog">
+                    Blog's
+                </Link>
                 <Link to="/add">
                     Add Food
                 </Link>
                 <Link to="/reviews">
                     My Reviews
-                </Link>
-                <Link to="/blog">
-                    Blog
                 </Link>
             </Navbar.Collapse>
         </Navbar>
