@@ -8,6 +8,8 @@ import Login from "../Pages/LoginRegister/Login";
 import Registration from "../Pages/LoginRegister/Registration";
 import Blogs from "../Pages/Blogs/Blogs";
 import PrivateRoute from "./PrivateRoute";
+import Secondary from "../Layout/Secondary";
+import AddReview from "../Pages/AddReview/AddReview";
 
 export const router = createBrowserRouter([
     {
@@ -43,7 +45,13 @@ export const router = createBrowserRouter([
             {
                 path: "/blogs",
                 element: <Blogs></Blogs>
-            },
+            }
+        ]
+    },
+    {
+        path: "/",
+        element: <Secondary></Secondary>,
+        children: [
             {
                 path: "/login",
                 element: <Login></Login>
