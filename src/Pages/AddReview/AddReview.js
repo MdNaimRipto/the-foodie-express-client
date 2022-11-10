@@ -23,7 +23,7 @@ const AddReview = ({ _id }) => {
             userImage: image,
             review: review
         }
-        fetch(`http://localhost:5000/reviews`, {
+        fetch(`https://the-foodie-express-server.vercel.app/reviews`, {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -102,7 +102,7 @@ const AddReview = ({ _id }) => {
                 <div className="mb-2 block">
                     <Label
                         htmlFor="repeat-password"
-                        value="Repeat password"
+                        value="Add Review"
                     />
                 </div>
                 <Textarea

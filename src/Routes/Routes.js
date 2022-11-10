@@ -10,7 +10,6 @@ import Blogs from "../Pages/Blogs/Blogs";
 import PrivateRoute from "./PrivateRoute";
 import Secondary from "../Layout/Secondary";
 import MyReviews from "../Pages/MyReviews/MyReviews";
-import UpdateReview from "../Pages/MyReviews/UpdateReview/UpdateReview";
 
 export const router = createBrowserRouter([
     {
@@ -29,14 +28,14 @@ export const router = createBrowserRouter([
                 path: "/allServices",
                 element: <AllServices></AllServices>,
                 loader: () => {
-                    return fetch("http://localhost:5000/allServices")
+                    return fetch("https://the-foodie-express-server.vercel.app/allServices")
                 }
             },
             {
                 path: "/serviceDetails/:id",
                 element: <ServiceDetails></ServiceDetails>,
                 loader: ({ params }) => {
-                    return fetch(`http://localhost:5000/serviceDetails/${params.id}`)
+                    return fetch(`https://the-foodie-express-server.vercel.app/serviceDetails/${params.id}`)
                 }
             },
             {
@@ -50,10 +49,6 @@ export const router = createBrowserRouter([
             {
                 path: "/myReviews",
                 element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
-            },
-            {
-                path: "/updateReview/:id",
-                element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>
             }
         ]
     },

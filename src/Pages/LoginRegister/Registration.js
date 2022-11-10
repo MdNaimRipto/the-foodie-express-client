@@ -32,18 +32,34 @@ const Registration = () => {
                 setUser(result.user)
                 const user = result.user;
                 console.log(user)
-                form.reset()
                 handleUpdateProfile(name, photoURL);
-                navigate(from, { replace: true })
-                toast.success("Registration Successful", {
-                    duration: 2000,
-                    style: {
-                        border: '1px solid #80808082',
-                        boxShadow: "none",
-                        width: "350px",
-                        borderRadius: "10px"
+                const currentUser = {
+                    email: user?.email
+                }
+
+                fetch(`https://the-foodie-express-server.vercel.app/jwt`, {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
                     },
+                    body: JSON.stringify(currentUser)
                 })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        localStorage.setItem("token", data.token)
+                        form.reset()
+                        navigate(from, { replace: true })
+                        toast.success("Registration Successful", {
+                            duration: 2000,
+                            style: {
+                                border: '1px solid #80808082',
+                                boxShadow: "none",
+                                width: "350px",
+                                borderRadius: "10px"
+                            },
+                        })
+                    })
             })
             .catch(err => {
                 console.error(err)
@@ -70,16 +86,32 @@ const Registration = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
-                navigate(from, { replace: true })
-                toast.success("Registration Successful", {
-                    duration: 2000,
-                    style: {
-                        border: '1px solid #80808082',
-                        boxShadow: "none",
-                        width: "350px",
-                        borderRadius: "10px"
+                const currentUser = {
+                    email: user?.email
+                }
+
+                fetch(`https://the-foodie-express-server.vercel.app/jwt`, {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
                     },
+                    body: JSON.stringify(currentUser)
                 })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        localStorage.setItem("token", data.token)
+                        navigate(from, { replace: true })
+                        toast.success("Registration Successful", {
+                            duration: 2000,
+                            style: {
+                                border: '1px solid #80808082',
+                                boxShadow: "none",
+                                width: "350px",
+                                borderRadius: "10px"
+                            },
+                        })
+                    })
             })
             .catch(err => {
                 console.error(err)

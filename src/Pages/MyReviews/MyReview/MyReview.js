@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from "react-router-dom"
+
 
 const MyReview = ({ myReview, handleDelete }) => {
     const { serviceId, review, _id } = myReview
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/serviceDetails/${serviceId}`)
+        fetch(`https://the-foodie-express-server.vercel.app/serviceDetails/${serviceId}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [serviceId])
 
     return (
+
         <li className="py-3 sm:py-4">
+
             <div className="flex items-center space-x-4">
                 <div className="shrink-0">
                     <img
@@ -29,14 +31,15 @@ const MyReview = ({ myReview, handleDelete }) => {
                     </p>
                 </div>
                 <div>
-                    <Link to={`/updateReview/${_id}`}>
-                        <button className='bg-green-500 text-white font-semibold py-2 px-3 rounded mr-3'>
-                            Update
-                        </button>
-                    </Link>
+
+                    <button className='bg-green-500 text-white font-semibold py-2 px-3 rounded mr-3'>
+                        Update
+                    </button>
+
                     <button onClick={() => { handleDelete(_id) }} className='bg-red-500 text-white font-semibold py-2 px-3 rounded'>
                         Delete
                     </button>
+
                 </div>
             </div>
         </li>

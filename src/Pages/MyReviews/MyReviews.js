@@ -13,7 +13,7 @@ const MyReviews = () => {
     const [myReviews, setMyReviews] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myReviews?email=${user?.email}`, {
+        fetch(`https://the-foodie-express-server.vercel.app/myReviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem("token")}`
             }
@@ -27,10 +27,11 @@ const MyReviews = () => {
             .then(data => {
                 setMyReviews(data)
             })
-    }, [user?.email])
+    }, [user?.email, logout])
+
 
     const handleDelete = (_id) => {
-        fetch(`http://localhost:5000/myReviews/${_id}`, {
+        fetch(`https://the-foodie-express-server.vercel.app/myReviews/${_id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
@@ -81,5 +82,6 @@ const MyReviews = () => {
         </div>
     );
 };
+
 
 export default MyReviews;
