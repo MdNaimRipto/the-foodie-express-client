@@ -7,7 +7,7 @@ const Review = ({ singleReview }) => {
             <div className="flex items-center space-x-4">
                 <div className="shrink-0">
                     <img
-                        className="h-10 w-11 rounded-full"
+                        className="h-10 w-10 rounded"
                         src={userImage}
                         alt=""
                     />

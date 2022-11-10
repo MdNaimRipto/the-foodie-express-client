@@ -50,7 +50,7 @@ const Header = () => {
                     }
                     {
                         user?.uid &&
-                        <Link to="/reviews">
+                        <Link to="/myReviews">
                             My Reviews
                         </Link>
                     }
@@ -124,7 +124,7 @@ const Header = () => {
                 <Link className='font-semibold mb-3 ml-2' to="/addService">
                     Add Food
                 </Link>
-                <Link className='font-semibold mb-3 ml-2' to="/reviews">
+                <Link className='font-semibold mb-3 ml-2' to="/myReviews">
                     My Reviews
                 </Link>
             </Navbar.Collapse>

@@ -1,7 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Card } from 'flowbite-react';
-import { Link } from "react-router-dom"
-import { AuthContext } from '../../ContextProvider/AuthProvider';
 import Review from './Review/Review';
 
 const Reviews = ({ reviews }) => {
