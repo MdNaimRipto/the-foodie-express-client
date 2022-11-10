@@ -3,7 +3,6 @@ import { Card } from 'flowbite-react';
 import Review from './Review/Review';
 
 const Reviews = ({ reviews }) => {
-    console.log(reviews)
     return (
         <div className="w-full mt-16">
             <Card>

@@ -23,17 +23,34 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
-                form.reset()
-                navigate(from, { replace: true })
-                toast.success("Login Successful", {
-                    duration: 2000,
-                    style: {
-                        border: '1px solid #80808082',
-                        boxShadow: "none",
-                        width: "350px",
-                        borderRadius: "10px"
+
+                const currentUser = {
+                    email: user?.email
+                }
+
+                fetch(`http://localhost:5000/jwt`, {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
                     },
+                    body: JSON.stringify(currentUser)
                 })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        localStorage.setItem("token", data.token)
+                        form.reset()
+                        navigate(from, { replace: true })
+                        toast.success("Login Successful", {
+                            duration: 2000,
+                            style: {
+                                border: '1px solid #80808082',
+                                boxShadow: "none",
+                                width: "350px",
+                                borderRadius: "10px"
+                            },
+                        })
+                    })
             })
             .catch(err => {
                 console.error(err)

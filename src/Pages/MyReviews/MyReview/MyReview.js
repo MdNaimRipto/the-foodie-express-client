@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom"
 
 const MyReview = ({ myReview, handleDelete }) => {
     const { serviceId, review, _id } = myReview
@@ -28,8 +29,14 @@ const MyReview = ({ myReview, handleDelete }) => {
                     </p>
                 </div>
                 <div>
-                    <button className='bg-green-500 text-white font-semibold py-2 px-3 rounded mr-3'>Update</button>
-                    <button onClick={() => { handleDelete(_id) }} className='bg-red-500 text-white font-semibold py-2 px-3 rounded'>Delete</button>
+                    <Link to={`/updateReview/${_id}`}>
+                        <button className='bg-green-500 text-white font-semibold py-2 px-3 rounded mr-3'>
+                            Update
+                        </button>
+                    </Link>
+                    <button onClick={() => { handleDelete(_id) }} className='bg-red-500 text-white font-semibold py-2 px-3 rounded'>
+                        Delete
+                    </button>
                 </div>
             </div>
         </li>
