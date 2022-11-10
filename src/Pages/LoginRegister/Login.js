@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import "./LoginRegister.css"
 import { FcGoogle } from "react-icons/fc"
 import { AuthContext } from '../../ContextProvider/AuthProvider';
@@ -9,6 +9,9 @@ import { useTitle } from '../../hooks/useTitle';
 const Login = () => {
     useTitle("Login")
     const { loginWithEmailAndPassword, loginWithGoogle } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || "/"
     const handleUserLogin = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -19,6 +22,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 form.reset()
+                navigate(from, { replace: true })
                 toast.success("Login Successful", {
                     duration: 2000,
                     style: {
@@ -47,6 +51,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                navigate(from, { replace: true })
                 toast.success("Login Successful", {
                     duration: 2000,
                     style: {

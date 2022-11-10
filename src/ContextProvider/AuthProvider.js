@@ -20,27 +20,26 @@ const googleProvider = new GoogleAuthProvider(auth)
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
-    // const user = { name: "Naimur Rahman" }
-    // const [loader, setLoader] = useState(true)
+    const [loader, setLoader] = useState(true)
 
     const loginWithGoogle = () => {
-        // setLoader(true)
+        setLoader(true)
         return signInWithPopup(auth, googleProvider)
     }
 
     const createAccountWithEmailAndPassword = (email, password) => {
-        // setLoader(true)
+        setLoader(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const loginWithEmailAndPassword = (email, password) => {
-        // setLoader(true)
+        setLoader(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     const updateUserProfile = (profile) => {
         return updateProfile(auth.currentUser, profile)
     }
     const logout = () => {
-        // setLoader(true)
+        setLoader(true)
         return signOut(auth)
     }
 
@@ -48,7 +47,7 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log(currentUser)
             setUser(currentUser)
-            // setLoader(false)
+            setLoader(false)
         })
         return unsubscribe;
     }, [])
@@ -56,7 +55,7 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         setUser,
-        // loader,
+        loader,
         loginWithGoogle,
         createAccountWithEmailAndPassword,
         loginWithEmailAndPassword,

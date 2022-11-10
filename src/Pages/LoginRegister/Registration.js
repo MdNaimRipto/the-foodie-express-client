@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc"
 import { AuthContext } from '../../ContextProvider/AuthProvider';
 import toast from 'react-hot-toast';
@@ -8,6 +8,10 @@ import { useTitle } from '../../hooks/useTitle';
 const Registration = () => {
     useTitle("Registration")
     const { createAccountWithEmailAndPassword, setUser, updateUserProfile, loginWithGoogle } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || "/"
+
     const handleUserRegistration = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -23,7 +27,8 @@ const Registration = () => {
                 const user = result.user;
                 console.log(user)
                 form.reset()
-                handleUpdateProfile(name, photoURL)
+                handleUpdateProfile(name, photoURL);
+                navigate(from, { replace: true })
                 toast.success("Registration Successful", {
                     duration: 2000,
                     style: {
@@ -59,6 +64,7 @@ const Registration = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                navigate(from, { replace: true })
                 toast.success("Registration Successful", {
                     duration: 2000,
                     style: {

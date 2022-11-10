@@ -6,7 +6,7 @@ import AllService from '../AllService/AllService';
 import AllServicesHeader from '../AllServicesHeader/AllServicesHeader';
 
 const AllServices = () => {
-    useTitle("All Services")
+    useTitle("All Food's")
     const allServices = useLoaderData()
     return (
         <>

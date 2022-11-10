@@ -46,14 +46,14 @@ const AddService = () => {
             <h2 className="text-xl md:text-4xl font-bold mb-6">Please Add Fill Add a Food</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mb-6'>
                 <input
-                    name="title" type="text" placeholder="Add Food Title" className="input input-bordered w-full" required />
+                    name="title" type="text" placeholder="Add Food Title" className="input input-bordered w-full rounded" required />
                 <input
-                    name="price" type="number" placeholder="Add Food Price" className="input input-bordered w-full" required />
+                    name="price" type="number" placeholder="Add Food Price" className="input input-bordered w-full rounded" required />
             </div>
             <input
-                name="image" type="text" placeholder="Add Image url" className="input input-bordered w-full" required />
+                name="image" type="text" placeholder="Add Image url" className="input input-bordered w-full rounded" required />
             <textarea name='description'
-                className="textarea textarea-bordered w-full mt-10 h-52" placeholder="Add Description" required></textarea>
+                className="textarea textarea-bordered w-full rounded mt-10 h-52" placeholder="Add Description" required></textarea>
             <button type='submit' className='w-full py-6 mt-6 font-semibold text-lg bg-green-500 text-white rounded'>
                 Add Food To The List
             </button>
