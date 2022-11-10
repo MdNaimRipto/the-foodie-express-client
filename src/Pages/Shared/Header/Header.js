@@ -97,7 +97,7 @@ const Header = () => {
                             Settings
                         </Dropdown.Item>
                         <Dropdown.Item>
-                            <Link to="/cart">
+                            <Link>
                                 View Cart
                             </Link>
                         </Dropdown.Item>

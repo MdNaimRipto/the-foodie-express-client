@@ -5,10 +5,12 @@ import { FcGoogle } from "react-icons/fc"
 import { AuthContext } from '../../ContextProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import { useTitle } from '../../hooks/useTitle';
+import { Spinner } from 'flowbite-react';
 
 const Login = () => {
     useTitle("Login")
-    const { loginWithEmailAndPassword, loginWithGoogle } = useContext(AuthContext)
+    const { loginWithEmailAndPassword, loginWithGoogle, loader } = useContext(AuthContext)
+
     const location = useLocation()
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || "/"
@@ -74,6 +76,14 @@ const Login = () => {
                     },
                 })
             })
+    }
+    if (loader) {
+        return <div className='text-center mt-32'>
+            <Spinner
+                color="success"
+                aria-label="Center-aligned spinner success"
+                size="xl" />
+        </div>
     }
     return (
         <form onSubmit={handleUserLogin}>

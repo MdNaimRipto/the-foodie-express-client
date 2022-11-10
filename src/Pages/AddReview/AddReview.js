@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useTitle } from '../../hooks/useTitle';
 import { Label, TextInput, Textarea } from "flowbite-react"
 import { AuthContext } from '../../ContextProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const AddReview = ({ _id }) => {
     const { user } = useContext(AuthContext)
@@ -32,6 +33,15 @@ const AddReview = ({ _id }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                toast.success("Review Added Successfully", {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
                 form.reset()
             })
     }
